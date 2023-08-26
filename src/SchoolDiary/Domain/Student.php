@@ -11,7 +11,7 @@ use Ramsey\Uuid\UuidInterface;
 
 class Student
 {
-    /** @var array<Score> */
+    /** @var array<int, Score> */
     private array $scores;
     private ?FinalScore $finalScore = null;
 
@@ -22,6 +22,7 @@ class Student
         $this->scores = [];
     }
 
+    /** @return array<int, Score> */
     public function getScores(): array
     {
         return $this->scores;
@@ -92,6 +93,6 @@ class Student
             $countTestsScores * ScoreWeight::TEST->value
         );
 
-        $this->finalScore = new FinalScore(number_format($score, 2));
+        $this->finalScore = new FinalScore((float) number_format($score, 2));
     }
 }

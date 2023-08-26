@@ -9,6 +9,7 @@ use Ramsey\Uuid\UuidInterface;
 
 class GroupInMemoryRepository implements GroupRepositoryInterface
 {
+    /** @var array<string, Group> */
     private array $memory = [];
 
     public function save(Group $group): void

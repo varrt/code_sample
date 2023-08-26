@@ -4,5 +4,8 @@ namespace Pmaj\SampleCode\SchoolDiary\Domain\Exception;
 
 class GroupNotFoundException extends \Exception
 {
-    protected $message = 'Group not found';
+    public function __construct(string $message = 'Group not found', int $code = 0, ?\Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

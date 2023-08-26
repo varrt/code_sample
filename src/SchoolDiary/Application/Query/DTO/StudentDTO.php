@@ -20,10 +20,11 @@ final readonly class StudentDTO implements \JsonSerializable
             $student->id->toString(),
             $student->fullName->firstName,
             $student->fullName->lastName,
-            $student->getFinalScore()?->score
+            $student->getFinalScore()?->score ?? 0
         );
     }
 
+    /** @return array<string, mixed> */
     public function jsonSerialize(): array
     {
         return [

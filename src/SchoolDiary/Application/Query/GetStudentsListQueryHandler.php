@@ -13,6 +13,7 @@ readonly class GetStudentsListQueryHandler
     ) {
     }
 
+    /** @return array<int, StudentDTO> */
     public function __invoke(GetStudentsListQuery $query): array
     {
         $group = $this->groupRepository->getById($query->groupId);

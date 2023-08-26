@@ -17,6 +17,7 @@ final class Group
         $this->students = [];
     }
 
+    /** @return array<int, Student> */
     public function getStudents(): array
     {
         return $this->students;

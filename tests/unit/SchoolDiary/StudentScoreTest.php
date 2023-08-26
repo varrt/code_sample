@@ -67,6 +67,6 @@ class StudentScoreTest extends TestCase
 
         $this->student->calculateFinalScore();
 
-        Assert::assertSame(2.67, $this->student->getFinalScore()->score);
+        Assert::assertSame(2.67, $this->student->getFinalScore()?->score);
     }
 }
