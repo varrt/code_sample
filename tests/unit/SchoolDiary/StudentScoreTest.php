@@ -2,27 +2,31 @@
 
 namespace unit\SchoolDiary;
 
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
-use Pmaj\SampleCode\SchoolDiary\Domain\Student;
-use PHPUnit\Framework\Attributes\Test;
-use Ramsey\Uuid\Uuid;
-use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FullName;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 use Pmaj\SampleCode\SchoolDiary\Domain\Enum\ScoreWeight;
 use Pmaj\SampleCode\SchoolDiary\Domain\Exception\ScoreNotFoundException;
+use Pmaj\SampleCode\SchoolDiary\Domain\Student;
+use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FullName;
+use Ramsey\Uuid\Uuid;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 #[CoversClass(Student::class)]
-class StudentScoreTest extends TestCase
+final class StudentScoreTest extends TestCase
 {
     private Student $student;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->student = new Student(Uuid::uuid4(), new FullName("Paul", "Maj"));
+        $this->student = new Student(Uuid::uuid4(), new FullName('Paul', 'Maj'));
     }
-
 
     #[Test]
     public function shouldAddScoreForStudent(): void
@@ -53,7 +57,7 @@ class StudentScoreTest extends TestCase
         $this->student->addScore(4, ScoreWeight::HOMEWORK);
         $this->student->addScore(2, ScoreWeight::TEST);
         $this->expectException(ScoreNotFoundException::class);
-        $this->expectExceptionMessage("Score not found");
+        $this->expectExceptionMessage('Score not found');
         $this->student->changeScore(4, 6, ScoreWeight::ACTIVITY);
     }
 
