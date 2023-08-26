@@ -11,7 +11,8 @@ final readonly class StudentDTO implements \JsonSerializable
         public string $firstName,
         public string $lastName,
         public float $finalScore
-    ) {}
+    ) {
+    }
 
     public static function fromEntity(Student $student): self
     {

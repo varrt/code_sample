@@ -9,5 +9,6 @@ final class Score
     public function __construct(
         public int $score,
         public readonly ScoreWeight $type
-    ) {}
+    ) {
+    }
 }

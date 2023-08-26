@@ -9,22 +9,20 @@ readonly class AddStudentsToGroupCommandHandler
 {
     public function __construct(
         private GroupRepositoryInterface $groupRepository
-    )
-    {
-
+    ) {
     }
+
     public function __invoke(AddStudentsToGroupCommand $command): void
     {
         $group = $this->groupRepository->getById($command->groupId);
         Assert::notNull($group);
 
         foreach ($command->students as $student) {
-            if ($group->findStudent($student->id) === null) {
+            if (null === $group->findStudent($student->id)) {
                 $group->addStudent($student);
             }
         }
 
         $this->groupRepository->save($group);
     }
-
 }

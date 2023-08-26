@@ -2,7 +2,6 @@
 
 namespace Pmaj\SampleCode\SharedInfrastructure\CommandBus;
 
-
 use Pmaj\SampleCode\SchoolDiary\Domain\Repository\GroupRepositoryInterface;
 use Pmaj\SampleCode\SchoolDiary\Infrastructure\Repository\GroupInMemoryRepository;
 
@@ -18,8 +17,8 @@ class CommandBus
 
     public function dispatch($command): void
     {
-        $commandClass = get_class($command);
-        $handlerClass = $commandClass."Handler";
+        $commandClass = \get_class($command);
+        $handlerClass = $commandClass.'Handler';
         (new $handlerClass($this->groupRepository))->__invoke($command);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Application\Command;
 
-use Ramsey\Uuid\UuidInterface;
 use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\Score;
+use Ramsey\Uuid\UuidInterface;
 
 final readonly class ChangeScoreForStudentCommand
 {
@@ -12,5 +12,6 @@ final readonly class ChangeScoreForStudentCommand
         public UuidInterface $studentId,
         public Score $oldScore,
         public Score $newScore,
-    ) {}
+    ) {
+    }
 }

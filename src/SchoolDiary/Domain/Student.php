@@ -2,23 +2,23 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Domain;
 
-use Ramsey\Uuid\UuidInterface;
-use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FullName;
-use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FinalScore;
-use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\Score;
 use Pmaj\SampleCode\SchoolDiary\Domain\Enum\ScoreWeight;
 use Pmaj\SampleCode\SchoolDiary\Domain\Exception\ScoreNotFoundException;
+use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FinalScore;
+use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\FullName;
+use Pmaj\SampleCode\SchoolDiary\Domain\ValueObject\Score;
+use Ramsey\Uuid\UuidInterface;
 
 class Student
 {
     /** @var array<Score> */
     private array $scores;
     private ?FinalScore $finalScore = null;
+
     public function __construct(
         public readonly UuidInterface $id,
         public readonly FullName $fullName,
-    )
-    {
+    ) {
         $this->scores = [];
     }
 
@@ -42,9 +42,11 @@ class Student
         foreach ($this->scores as $score) {
             if ($score->score === $oldScore && $score->type === $type) {
                 $score->score = $newScore;
+
                 return;
             }
         }
+
         throw new ScoreNotFoundException();
     }
 
@@ -62,27 +64,32 @@ class Student
             switch ($score->type) {
                 case ScoreWeight::ACTIVITY:
                     $sumActivityScores += $score->score;
-                    $countActivityScores++;
+                    ++$countActivityScores;
+
                     break;
+
                 case ScoreWeight::HOMEWORK:
                     $sumHomeworkScores += $score->score;
-                    $countHomeworkScores++;
+                    ++$countHomeworkScores;
+
                     break;
+
                 case ScoreWeight::TEST:
                     $sumTestsScores += $score->score;
-                    $countTestsScores++;
+                    ++$countTestsScores;
+
                     break;
             }
         }
 
         $score = (
-                $sumActivityScores * ScoreWeight::ACTIVITY->value +
+            $sumActivityScores * ScoreWeight::ACTIVITY->value +
                 $sumHomeworkScores * ScoreWeight::HOMEWORK->value +
                 $sumTestsScores * ScoreWeight::TEST->value
-            ) / (
-                $countActivityScores * ScoreWeight::ACTIVITY->value +
-                $countHomeworkScores * ScoreWeight::HOMEWORK->value +
-                $countTestsScores * ScoreWeight::TEST->value
+        ) / (
+            $countActivityScores * ScoreWeight::ACTIVITY->value +
+            $countHomeworkScores * ScoreWeight::HOMEWORK->value +
+            $countTestsScores * ScoreWeight::TEST->value
         );
 
         $this->finalScore = new FinalScore(number_format($score, 2));

@@ -2,8 +2,8 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Application\Command;
 
-use Ramsey\Uuid\UuidInterface;
 use Pmaj\SampleCode\SchoolDiary\Domain\Teacher;
+use Ramsey\Uuid\UuidInterface;
 
 final readonly class CreateGroupCommand
 {
@@ -11,5 +11,6 @@ final readonly class CreateGroupCommand
         public UuidInterface $groupId,
         public Teacher $teacher,
         public string $groupName
-    ) {}
+    ) {
+    }
 }

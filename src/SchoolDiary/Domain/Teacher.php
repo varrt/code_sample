@@ -8,8 +8,6 @@ final readonly class Teacher
 {
     public function __construct(
         public FullName $fullName
-    )
-    {
-
+    ) {
     }
 }

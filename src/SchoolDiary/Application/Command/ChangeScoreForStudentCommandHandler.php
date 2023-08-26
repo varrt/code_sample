@@ -2,16 +2,14 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Application\Command;
 
-use Webmozart\Assert\Assert;
 use Pmaj\SampleCode\SchoolDiary\Domain\Repository\GroupRepositoryInterface;
+use Webmozart\Assert\Assert;
 
 readonly class ChangeScoreForStudentCommandHandler
 {
-
     public function __construct(
         private GroupRepositoryInterface $groupRepository
-    )
-    {
+    ) {
     }
 
     public function __invoke(ChangeScoreForStudentCommand $command): void

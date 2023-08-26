@@ -9,8 +9,7 @@ readonly class AddScoreForStudentCommandHandler
 {
     public function __construct(
         private GroupRepositoryInterface $groupRepository
-    )
-    {
+    ) {
     }
 
     public function __invoke(AddScoreForStudentCommand $command): void

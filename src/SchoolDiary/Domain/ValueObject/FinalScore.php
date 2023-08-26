@@ -6,5 +6,6 @@ final readonly class FinalScore
 {
     public function __construct(
         public float $score
-    ) {}
+    ) {
+    }
 }

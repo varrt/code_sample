@@ -8,8 +8,6 @@ final readonly class GetStudentsListQuery
 {
     public function __construct(
         public UuidInterface $groupId
-    )
-    {
-
+    ) {
     }
 }

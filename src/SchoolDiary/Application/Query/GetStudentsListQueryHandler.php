@@ -2,18 +2,16 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Application\Query;
 
+use Pmaj\SampleCode\SchoolDiary\Application\Query\DTO\StudentDTO;
 use Pmaj\SampleCode\SchoolDiary\Domain\Repository\GroupRepositoryInterface;
 use Webmozart\Assert\Assert;
-use Pmaj\SampleCode\SchoolDiary\Application\Query\DTO\StudentDTO;
 
 readonly class GetStudentsListQueryHandler
 {
     public function __construct(
         private GroupRepositoryInterface $groupRepository
-    )
-    {
+    ) {
     }
-
 
     public function __invoke(GetStudentsListQuery $query): array
     {

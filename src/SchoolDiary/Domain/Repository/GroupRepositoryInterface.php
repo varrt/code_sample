@@ -2,8 +2,8 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Domain\Repository;
 
-use Ramsey\Uuid\UuidInterface;
 use Pmaj\SampleCode\SchoolDiary\Domain\Group;
+use Ramsey\Uuid\UuidInterface;
 
 interface GroupRepositoryInterface
 {
