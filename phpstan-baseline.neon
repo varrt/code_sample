@@ -9,3 +9,18 @@ parameters:
 			message: "#^Method Pmaj\\\\SampleCode\\\\SharedInfrastructure\\\\CommandBus\\\\CommandBus\\:\\:dispatch\\(\\) has parameter \\$command with no type specified\\.$#"
 			count: 1
 			path: src/SharedInfrastructure/CommandBus/CommandBus.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:__invoke\\(\\)\\.$#"
+			count: 1
+			path: src/SharedInfrastructure/QueryBus/QueryBus.php
+
+		-
+			message: "#^Method Pmaj\\\\SampleCode\\\\SharedInfrastructure\\\\QueryBus\\\\QueryBus\\:\\:dispatch\\(\\) has parameter \\$command with no type specified\\.$#"
+			count: 1
+			path: src/SharedInfrastructure/QueryBus/QueryBus.php
+
+		-
+			message: "#^Method Pmaj\\\\SampleCode\\\\SharedInfrastructure\\\\QueryBus\\\\QueryBus\\:\\:dispatch\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/SharedInfrastructure/QueryBus/QueryBus.php
