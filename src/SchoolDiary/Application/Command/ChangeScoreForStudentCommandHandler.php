@@ -2,7 +2,6 @@
 
 namespace Pmaj\SampleCode\SchoolDiary\Application\Command;
 
-use Pmaj\SampleCode\SchoolDiary\Domain\Repository\StudentRepositoryInterface;
 use Webmozart\Assert\Assert;
 use Pmaj\SampleCode\SchoolDiary\Domain\Repository\GroupRepositoryInterface;
 
