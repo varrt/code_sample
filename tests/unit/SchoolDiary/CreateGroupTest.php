@@ -19,10 +19,12 @@ class CreateGroupTest extends TestCase
     public function shouldCreateGroupAndAddStudents(): void
     {
         $teacher = new Teacher(new FullName("John", "Smith"));
-        $group = new Group($teacher, "Class 1A");
+        $groupId = Uuid::fromString("7be94e76-27d2-44e0-ae5a-a4277f4461e1");
+        $group = new Group($groupId, $teacher, "Class 1A");
 
         Assert::assertSame($teacher->fullName, $group->teacher->fullName);
         Assert::assertSame('Class 1A', $group->groupName);
+        Assert::assertTrue($group->id->equals($groupId));
         Assert::assertCount(0, $group->getStudents());
 
         $group->addStudent(new Student(Uuid::uuid4(), new FullName("Paul", "Jones")));
