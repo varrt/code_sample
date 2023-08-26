@@ -1,0 +1,16 @@
+{
+    "name": "pmaj/sample-code",
+    "description": "Sample project in PHP with using DDD and CQRS",
+    "autoload": {
+        "psr-4": {
+            "Pmaj\\SampleCode\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paul Maj",
+            "email": "paulmaj90@gmail.com"
+        }
+    ],
+    "require": {}
+}
