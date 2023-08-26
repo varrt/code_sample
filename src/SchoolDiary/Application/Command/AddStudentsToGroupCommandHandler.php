@@ -19,7 +19,9 @@ readonly class AddStudentsToGroupCommandHandler
         Assert::notNull($group);
 
         foreach ($command->students as $student) {
-            $group->addStudent($student);
+            if ($group->findStudent($student->id) === null) {
+                $group->addStudent($student);
+            }
         }
 
         $this->groupRepository->save($group);

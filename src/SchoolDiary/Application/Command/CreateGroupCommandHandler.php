@@ -5,6 +5,7 @@ namespace Pmaj\SampleCode\SchoolDiary\Application\Command;
 use Pmaj\SampleCode\SchoolDiary\Domain\Repository\GroupRepositoryInterface;
 use Webmozart\Assert\Assert;
 use Pmaj\SampleCode\SchoolDiary\Domain\Group;
+use JetBrains\PhpStorm\NoReturn;
 
 readonly class CreateGroupCommandHandler
 {
@@ -14,9 +15,9 @@ readonly class CreateGroupCommandHandler
     {
     }
 
-    public function __invoke(CreateGroupCommand $command): void
+    #[NoReturn] public function __invoke(CreateGroupCommand $command): void
     {
-        $group = $this->groupRepository->getById($command->groupId);
+        $group = $this->groupRepository->findById($command->groupId);
         Assert::null($group);
 
         $group = new Group(
