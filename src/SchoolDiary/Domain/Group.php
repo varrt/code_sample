@@ -26,4 +26,15 @@ final class Group
     {
         $this->students[] = $student;
     }
+
+    public function findStudent(UuidInterface $studentId): ?Student
+    {
+        foreach ($this->students as $student) {
+            if ($student->id->equals($studentId)) {
+                return $student;
+            }
+        }
+
+        return null;
+    }
 }

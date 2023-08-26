@@ -15,8 +15,8 @@ class Student
     private array $scores;
     private ?FinalScore $finalScore = null;
     public function __construct(
-        private UuidInterface $id,
-        private FullName $fullName,
+        public readonly UuidInterface $id,
+        public readonly FullName $fullName,
     )
     {
         $this->scores = [];
